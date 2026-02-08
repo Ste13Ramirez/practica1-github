@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clonar repositorio
+      - name: Checkout del repositorio
         uses: actions/checkout@v4
 
-      - name: Ejecutar programa Hola Mundo
+      - name: Ejecutar Hola Mundo
         run: node hola.js
 
       - name: Enviar notificación a ntfy
