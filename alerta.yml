@@ -1,4 +1,4 @@
-name: Alerta Hola Mundo
+name: Alerta CI - Hola Mundo
 
 on:
   push:
@@ -10,15 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout del repositorio
-        uses: actions/checkout@v4
-
-      - name: Ejecutar Hola Mundo
-        run: node hola.js
+      - name: Mostrar mensaje Hola Mundo
+        run: echo "Hola Mundo desde GitHub Actions 🚀"
 
       - name: Enviar notificación a ntfy
         run: |
-          curl -X POST https://ntfy.sh/devops-itla \
-          -H "Title: GitHub Actions" \
-          -H "Priority: high" \
-          -d "Se hizo push a la rama main y se ejecutó Hola Mundo"
+          curl -X POST \
+          -H "Title: 🚀 Push a main" \
+          -H "Priority: 3" \
+          -d "Se subió código al repositorio practica1-github correctamente." \
+          https://ntfy.sh/devops-itla
