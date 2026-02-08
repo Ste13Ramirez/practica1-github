@@ -1,0 +1,17 @@
+name: Alerta CI ntfy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Enviar notificación a ntfy
+        run: |
+          curl -X POST https://ntfy.sh/devops-itla \
+          -H "Title: GitHub Actions CI" \
+          -d "🔔 Push realizado en la rama main del repositorio practica1-github por ${{ github.actor }}"
